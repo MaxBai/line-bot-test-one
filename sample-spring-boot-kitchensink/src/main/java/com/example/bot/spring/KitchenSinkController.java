@@ -236,7 +236,7 @@ public class KitchenSinkController {
 
     private void handleTextContent(String replyToken, Event event, TextMessageContent content)
             throws Exception {
-        String text = "小米 : " + content.getText();
+        String text = content.getText();
 
         log.info("Got text message from {}: {}", replyToken, text);
         switch (text) {
@@ -366,6 +366,7 @@ public class KitchenSinkController {
                 break;
             default:
                 log.info("Returns echo message {}: {}", replyToken, text);
+                text = "2米 : " + text;
                 this.replyText(
                         replyToken,
                         text
